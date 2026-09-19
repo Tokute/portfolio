@@ -1,0 +1,558 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+/* Reset Styles */
+body, header, nav, main, footer, h1, h2, h3, h4, div, p, ul, li, section, article, figure, figcaption, a, img, form, label, input, textarea, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* ================================================================= */
+/* TYPOGRAPHY SYSTEM */
+/* ================================================================= */
+
+/* Font family applied to every relevant tag */
+
+body, h1, h2, h3, h4, h5, p, a, ul, li, nav, header, main, section, article,
+footer, label, input, textarea, button, caption,
+.badge, .card-image, .card-link, .mobile-link, .skill-card,
+#contact-form, .alert {
+    font-family: "Monda", sans-serif;
+    color: var(--color-text);
+}
+
+/* Heading scale (Monda) */
+
+h1 { font-size: 3rem; }       /* 48px */
+h2 { font-size: 2.5rem; }     /* 40px */
+h3 { font-size: 1.5rem; }     /* 24px */
+h4 { font-size: 1.25rem; }    /* 20px */
+h5 { font-size: 1rem; }       /* 16px */
+
+/* Body / utility text scale (Monda) */
+
+.text-big { font-size: 1.5rem; }      /* 24px */
+.text-regular { font-size: 1rem; }    /* 16px */
+.text-small { font-size: 0.75rem; }   /* 12px */
+caption { font-size: 0.625rem; }      /* 10px */
+
+/* Hero display text */
+
+.hero-font {
+    font-size: 4.750rem;
+    color: var(--color-muted);
+    margin: 1em auto;
+    max-width: 80%;
+    font-weight: 400;
+    font-family: "Black Ops One", sans-serif;
+}
+
+/* ================================================================= */
+/* COLOR SYSTEM */
+/* ================================================================= */
+
+:root {
+    --color-primary: #ff8800;
+    --color-primary-hover: #bf6600;
+    --color-secondary: #c05621;
+    --color-secondary-hover: #7c3311;
+
+    --color-background: #fff3e6;
+    --color-surface: #ffdab0;
+
+    --color-text: #502a00;
+    --color-muted: #a09180;
+    --color-border: #593000;
+
+    --color-success: #22c55e;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+
+    --color-on-primary: #ffffff;
+}
+
+/* ================================================================= */
+
+/* General Styles */
+body {
+    background-color: var(--color-background);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--color-primary-hover);
+}
+
+a:hover {
+    color: var(--color-secondary);
+}
+
+/* Code below is for the page container */
+
+#container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* Styles for header and navigation */
+
+header {
+    background-color: var(--color-background);
+    border-bottom: solid 2px var(--color-primary-hover);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2%;
+}
+
+header h1 {
+    font-size: 1.5em;
+    padding: 0.5em 0;
+}
+
+nav {
+    padding: 1% 0;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav li {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    border-right: 1px solid var(--color-primary-hover);
+}
+
+nav li:last-child {
+    border-right: none;
+}
+
+nav li a {
+    display: block;
+    color: var(--color-text);
+    padding: 0.5em 1em;
+    text-decoration: none;
+}
+
+nav li a:visited {
+    color: var(--color-text);
+}
+
+nav li a:hover {
+    color: var(--color-primary);
+}
+
+/* Style rules for hero */
+
+#hero {
+    padding: 4% 2% 2% 2%;
+    text-align: center;
+    background: linear-gradient(to bottom, var(--color-surface), var(--color-background));
+}
+
+#hero h2 {
+    font-size: 2.5em;
+    color: var(--color-text);
+}
+
+#hero p {
+    font-size: 1.2em;
+    color: var(--color-muted);
+    margin: 1em auto;
+    max-width: 45%;
+}
+
+#hero .mobile-link {
+    font-size: 1.2em;
+}
+
+/* Styles for main */
+
+main {
+    background-color: var(--color-background);
+    padding: 2%;
+    font-size: 1.15em;
+}
+
+/* Generic container/border-style for tablet-desktop */
+
+.generic-container {
+    background-color: var(--color-surface);
+    border-top: solid 2px var(--color-primary-hover);
+    border-bottom: solid 2px var(--color-primary-hover);
+    padding: 2%;
+    margin-bottom: 1em;
+}
+
+.generic-container:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Mobile container style */
+
+.mobile-container {
+    background-color: var(--color-surface);
+    border-top: solid 2px var(--color-primary-hover);
+    border-bottom: solid 2px var(--color-primary-hover);
+    margin-bottom: 1em;
+    padding: 4%;
+}
+
+/* Show mobile class, hide tablet-desktop class for mobile viewports */
+
+.mobile {
+    display: block;
+}
+
+.tablet-desktop {
+    display: none;
+}
+
+/* Mobile grid */
+
+.grid-mobile {
+    display: grid;
+    grid-column: 1 / span 3;
+}
+
+/* Mobile link styles */
+.mobile-link {
+    display: block;
+    padding: 2%;
+    margin: 0.4em auto;
+    width: 80%;
+    text-align: center;
+    border-radius: 5px;
+    background-color: var(--color-on-primary);
+    border: 2px solid var(--color-primary-hover);
+    color: var(--color-text);
+}
+
+.mobile-link a {
+    text-decoration: none;
+    font-size: 1.5em;
+    display: block;
+}
+
+.mobile-link:hover {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+}
+
+/* Styles for content sections */
+
+.content-section {
+    padding: 2%;
+    text-align: left;
+}
+
+.content-section h1, .content-section h2, .content-section h3 {
+    color: var(--color-text);
+    padding: 0.5em 0;
+}
+
+.content-section p {
+    font-size: 1em;
+    padding: 0.5em 0;
+}
+
+/* Style rules for project cards */
+
+/* Mobile-first: cards stack in a single column by default */
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.card {
+    background-color: var(--color-surface);
+    border: solid 2px var(--color-primary-hover);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image {
+    background-color: var(--color-primary);
+    height: 160px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-on-primary);
+    font-size: 1.2em;
+}
+
+.card-body {
+    padding: 1em;
+    flex-grow: 1;
+}
+
+.card-body h3 {
+    font-size: 1.2em;
+    color: var(--color-text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2em 0;
+}
+
+.card-body p {
+    font-size: 0.9em;
+    padding: 0.5em 0;
+}
+
+.card-link {
+    font-size: 0.8em;
+    color: var(--color-primary-hover);
+}
+
+.card-link:hover {
+    color: var(--color-primary);
+}
+
+.card-body .badge {
+    margin: 0.3em 0.3em 0 0;
+}
+
+/* Style rules for badges */
+
+.badge {
+    display: inline-block;
+    padding: 0.2em 0.7em;
+    border-radius: 4px;
+    font-size: 0.7em;
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+}
+
+.badge-outline {
+    background-color: transparent;
+    color: var(--color-primary-hover);
+    border: 1px solid var(--color-primary-hover);
+}
+
+.badge-success {
+    background-color: var(--color-success);
+}
+
+.badge-warning {
+    background-color: var(--color-warning);
+}
+
+.badge-error {
+    background-color: var(--color-error);
+}
+
+/* Code below is for about.html */
+
+#about-content p {
+    font-size: 1em;
+    padding: 1em;
+}
+
+.skill-card {
+    background-color: var(--color-surface);
+    border: solid 2px var(--color-primary-hover);
+    border-radius: 12px;
+    padding: 1em;
+}
+
+.skill-card h3 {
+    color: var(--color-text);
+    padding-bottom: 0.5em;
+}
+
+/* Code below is for contact.html */
+
+#contact-form {
+    background-color: var(--color-surface);
+    /* border: solid 2px var(--color-primary-hover); */
+    border-radius: 12px;
+    padding: 2%;
+    margin: 0 auto;
+    width: 80%;
+}
+
+#contact-form h3 {
+    color: var(--color-text);
+    text-align: center;
+    padding-bottom: 0.5em;
+}
+
+label {
+    display: block;
+    margin: 0.8em 0;
+    font-size: 1em;
+    color: var(--color-text);
+}
+
+input[type="text"], input[type="email"], textarea {
+    display: block;
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.4em;
+    font-size: 0.9em;
+    border: 2px solid var(--color-primary-hover);
+    border-radius: 4px;
+    background-color: var(--color-on-primary);
+}
+
+textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+#contact-form input[type="submit"] {
+    display: block;
+    width: 220px;
+    padding: 0.5em;
+    border: 0;
+    border-radius: 10px;
+    color: var(--color-on-primary);
+    background-color: var(--color-primary);
+    font-size: 1em;
+    margin: 1em auto;
+    cursor: pointer;
+}
+
+#contact-form input[type="submit"]:hover {
+    background-color: var(--color-primary-hover);
+}
+
+/* Styles for alerts */
+
+.alert {
+    background-color: var(--color-surface);
+    border: solid 2px var(--color-primary-hover);
+    border-radius: 12px;
+    padding: 1.5em;
+    margin: 1em auto;
+    max-width: 600px;
+}
+
+.alert h3 {
+    color: var(--color-text);
+    padding-bottom: 0.5em;
+}
+
+.alert-success {
+    border-color: var(--color-success);
+}
+
+.alert-error {
+    border-color: var(--color-error);
+}
+
+/* Styles for footer */
+
+footer {
+    padding: 0.8em 0;
+    background-color: var(--color-surface);
+    border-top: solid 2px var(--color-border);
+}
+
+footer p {
+    font-size: 0.75em;
+    text-align: center;
+    color: var(--color-text);
+    padding: 0.2em;
+}
+
+footer p a {
+    color: var(--color-primary);
+}
+
+/* Styles for span elements */
+
+.highlight {
+    color: var(--color-primary);
+}
+
+.bold {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.small-text {
+    font-size: 0.8em;
+}
+
+/* ================================================================= */
+/* MEDIA QUERY FOR TABLET VIEWPORT */
+/* Tablet Viewport: Show tablet-desktop class, hide mobile class */
+@media screen and (min-width: 630px), print {
+    .tablet-desktop {
+        display: block;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+/* Tablet Viewport: Style rules for hero */
+
+    #hero p {
+        max-width: 60%;
+    }
+
+/* Tablet Viewport: Style rules for project cards */
+
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ================================================================= */
+/* MEDIA QUERY FOR DESKTOP VIEWPORT */
+@media screen and (min-width: 1015px) {
+
+/* Desktop Viewport: Style rules for hero */
+
+    #hero p {
+        max-width: 45%;
+    }
+
+/* Desktop Viewport: Style rules for project cards */
+
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ================================================================= */
+/* MEDIA QUERY FOR PRINT */
+@media print {
+    body {
+        background-color: #fff;
+        color: #000;
+    }
+
+    nav, #hero {
+        display: none;
+    }
+}
