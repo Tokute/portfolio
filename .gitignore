@@ -1,0 +1,25 @@
+# ============================================================
+# Portfolio .gitignore
+# ============================================================
+
+# Design/decisions metadata file (not committed)
+style-choice.md
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs / temp
+*.log
+*.tmp
+
+# Media build artifacts (uncomment as needed)
+# assets/out/
+# images/dist/
