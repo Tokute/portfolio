@@ -377,7 +377,7 @@ main {
 
 #featured-project .featured-card-body p {
     font-size: 1em;
-    padding: 0.5em 0;
+    padding: 0 0 0.5em 0;
 }
 
 #featured-project .featured-card-body .badge {
