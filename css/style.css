@@ -42,7 +42,7 @@ h5 { font-size: 1rem; }       /* 16px */
 
 .hero-font {
     font-size: 4.750rem;
-    color: var(--color-muted);
+    color: #000000;
     margin: 1em auto;
     max-width: 80%;
     font-weight: 400;
@@ -91,6 +91,11 @@ h5 { font-size: 1rem; }       /* 16px */
 
 body {
     background-color: var(--color-background);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
 }
 
 /* Code below is for the page container */
@@ -431,6 +436,19 @@ main {
 
 .button-secondary:hover {
     background-color: var(--color-secondary-hover);
+    box-shadow: var(--shadow-small);
+}
+
+.button-outline {
+    border: 2px solid var(--color-border);
+    border-radius: 12px;
+    background-color: transparent;
+    padding: 1rem 0.75rem;
+}
+
+.button-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
     box-shadow: var(--shadow-small);
 }
 
