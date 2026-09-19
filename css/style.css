@@ -420,6 +420,32 @@ main {
     background-color: var(--color-error);
 }
 
+/* Style rules for buttons */
+
+.button-primary, .button-secondary {
+    padding: 1rem 0.75rem;
+    border: 2px solid var(--color-border);
+    border-radius: 12px;
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button-primary:hover {
+    background-color: var(--color-primary-hover);
+    box-shadow: var(--shadow-small);
+}
+
+.button-secondary {
+    background-color: var(--color-secondary);
+}
+
+.button-secondary:hover {
+    background-color: var(--color-secondary-hover);
+    box-shadow: var(--shadow-small);
+}
+
 /* Code below is for index.html */
 
 .hero-buttons {
