@@ -447,6 +447,10 @@ main {
     margin-bottom: 0;
 }
 
+#about-skills .card-grid {
+    justify-items: stretch;
+}
+ 
 .skill-card {
     background-color: var(--color-surface);
     border: solid 2px var(--color-border);
