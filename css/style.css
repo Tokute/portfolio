@@ -162,7 +162,7 @@ nav li a:hover {
 /* Style rules for hero */
 
 #hero {
-    padding: 4% 2% 2% 2%;
+    padding: 4% 2%;
     text-align: center;
     background: linear-gradient(to bottom, var(--color-surface), var(--color-background));
 }
