@@ -277,6 +277,8 @@ main {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
+    width: 100%;
+    justify-items: space-between;
 }
 
 .card {
@@ -286,6 +288,7 @@ main {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    max-width: 350px;
 }
 
 .card-image {
@@ -385,6 +388,9 @@ main {
     margin-bottom: 1rem;
 }
 
+#featured-projects > p:first-of-type {
+    margin-bottom: 1rem;
+}
 
 /* Code below is for about.html */
 
@@ -567,6 +573,10 @@ footer p a {
 
     .card-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+        max-width: 450px;
     }
 }
 
