@@ -96,7 +96,7 @@ a:hover {
 /* Code below is for the page container */
 
 #container {
-    max-width: 1440px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -237,7 +237,7 @@ main {
     display: block;
     padding: 2%;
     margin: 0.4em auto;
-    width: 80%;
+    width: 40%;
     text-align: center;
     border-radius: 5px;
     background-color: var(--color-on-primary);
@@ -362,6 +362,28 @@ main {
 .badge-error {
     background-color: var(--color-error);
 }
+
+/* Code below is for index.html */
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#view-projects, #contact-me {
+    border: 2px solid var(--color-primary-hover);
+    border-radius: 12px;
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+}
+
+#view-projects:hover, #contact-me:hover {
+    background-color: var(--color-primary-hover);
+}
+
 
 /* Code below is for about.html */
 
