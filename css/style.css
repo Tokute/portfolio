@@ -227,13 +227,6 @@ main {
     display: none;
 }
 
-/* Mobile grid */
-
-.grid-mobile {
-    display: grid;
-    grid-column: 1 / span 3;
-}
-
 /* Mobile link styles */
 .mobile-link {
     display: block;
