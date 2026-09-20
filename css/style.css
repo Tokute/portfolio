@@ -25,15 +25,15 @@ footer, label, input, textarea, button, caption,
 
 /* Heading scale (Monda) */
 
-h1 { font-size: 3rem; }       /* 48px */
-h2 { font-size: 2.5rem; }     /* 40px */
-h3 { font-size: 1.5rem; }     /* 24px */
-h4 { font-size: 1.25rem; }    /* 20px */
-h5 { font-size: 1rem; }       /* 16px */
+h1 { font-size: 4rem; }       /* 64px */
+h2 { font-size: 3rem; }     /* 48px */
+h3 { font-size: 2.5rem; }     /* 40px */
+h4 { font-size: 2rem; }    /* 32px */
+h5 { font-size: 1.5rem; }       /* 24px */
 
 /* Body / utility text scale (Monda) */
 
-.text-big { font-size: 1.5rem; }      /* 24px */
+.text-big { font-size: 1.25rem; }      /* 20px */
 .text-regular { font-size: 1rem; }    /* 16px */
 .text-small { font-size: 0.75rem; }   /* 12px */
 .caption { font-size: 0.625rem; }      /* 10px */
