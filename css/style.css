@@ -1069,36 +1069,21 @@ input:focus, textarea:focus {
 
 /* Shared site footer. */
 
-footer {
+.site-footer {
     padding: 0.8em 0;
     background-color: var(--color-surface);
     border-top: solid 2px var(--color-border);
 }
 
-footer p {
+.site-footer p {
     font-size: 0.75em;
     text-align: center;
     color: var(--color-text);
     padding: 0.2em;
 }
 
-footer p a {
+.site-footer a {
     color: var(--color-primary);
-}
-
-/* Small text utilities. */
-
-.highlight {
-    color: var(--color-primary);
-}
-
-.bold {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-.small-text {
-    font-size: 0.8em;
 }
 
 /* ================================================================= */
