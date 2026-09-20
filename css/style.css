@@ -41,7 +41,7 @@ h5 { font-size: 1.5rem; }       /* 24px */
 /* Hero display text */
 
 .hero-font {
-    font-size: 4.750rem;
+    font-size: 2.5rem;
     color: var(--color-secondary-hover);
     margin: 1em auto;
     max-width: 80%;
@@ -110,6 +110,7 @@ header {
 
 .header-container {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -195,7 +196,7 @@ main {
     padding: 2rem 3rem;
 }
 
-.generic-container:nth-child(even) {
+.generic-container--alt {
     background-color: var(--color-background);
 }
 
@@ -203,10 +204,12 @@ main {
 
 .mobile-container {
     background-color: var(--color-surface);
-    border-top: solid 2px var(--color-border);
-    border-bottom: solid 2px var(--color-border);
     margin-bottom: 1em;
     padding: 4%;
+}
+
+.mobile-container--alt {
+    background-color: var(--color-background);
 }
 
 /* Mobile-first visibility helpers. */
@@ -281,6 +284,7 @@ main {
     display: flex;
     flex-direction: column;
     max-width: 350px;
+    box-shadow: var(--shadow-small);
 }
 
 .card-image {
@@ -295,6 +299,7 @@ main {
 }
 
 .card-body {
+    background-color: var(--color-background);
     padding: 1em;
     flex-grow: 1;
 }
@@ -322,52 +327,6 @@ main {
 }
 
 .card-body .badge {
-    margin: 0.3em 0.3em 0 0;
-}
-
-/* Featured project variant used on projects.html. */
-
-#featured-project h3 {
-    padding: 0.5em 0;
-}
-
-#featured-project .featured-card {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--color-on-primary);
-    border: solid 2px var(--color-primary-hover);
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-#featured-project .featured-card-image {
-    background-color: var(--color-primary);
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-on-primary);
-    font-size: 1.5em;
-    flex-shrink: 0;
-}
-
-#featured-project .featured-card-body {
-    padding: 1.5em;
-    flex-grow: 1;
-}
-
-#featured-project .featured-card-body h3 {
-    color: var(--color-text);
-    font-size: 1.5em;
-    padding-bottom: 0.5em;
-}
-
-#featured-project .featured-card-body p {
-    font-size: 1em;
-    padding: 0 0 0.5em 0;
-}
-
-#featured-project .featured-card-body .badge {
     margin: 0.3em 0.3em 0 0;
 }
 
@@ -445,6 +404,7 @@ main {
 
 .hero-buttons {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
 }
@@ -472,9 +432,212 @@ main {
     color: var(--color-text);
 }
 
+/* Index mobile content. */
+#mobile-projects {
+    width: 100%;
+    overflow: hidden;
+}
+
+#mobile-projects .card-grid {
+    margin-top: 1rem;
+}
+
+#mobile-projects .card {
+    width: 100%;
+    max-width: none;
+    justify-self: stretch;
+}
+
+#mobile-projects .card-body h3 {
+    display: block;
+    overflow-wrap: anywhere;
+}
+
+#mobile-projects .card-link {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+#socials-mobile .social-links-mobile {
+    list-style-type: none;
+}
+
+/* ================================================================= */
+/* PROJECTS PAGE                                                     */
+/* ================================================================= */
+
+/* Featured project desktop and mobile card variants. */
+#featured-project h3 {
+    padding: 0.5em 0;
+}
+
+#featured-project .featured-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-surface);
+    border: solid 2px var(--color-primary-hover);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#featured-project .featured-card-image {
+    background-color: var(--color-primary);
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-on-primary);
+    font-size: 1.5em;
+    flex-shrink: 0;
+}
+
+#featured-project .featured-card-body {
+    padding: 1.5em;
+    flex-grow: 1;
+}
+
+#featured-project .featured-card-body h3 {
+    color: var(--color-text);
+    font-size: 1.5em;
+    padding-bottom: 0.5em;
+}
+
+#featured-project .featured-card-body p {
+    font-size: 1em;
+    padding: 0 0 0.5em 0;
+}
+
+#featured-project .featured-card-body .badge {
+    margin: 0.3em 0.3em 0 0;
+}
+
+/* Projects mobile counterpart. */
+#featured-project-mobile .featured-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    background-color: var(--color-background);
+    border: solid 2px var(--color-border);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+#featured-project-mobile .featured-card-image {
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+}
+
+#featured-project-mobile .featured-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+}
+
+#featured-project-mobile .featured-card-body p {
+    line-height: 1.6;
+}
+
+#featured-project-mobile .card-link {
+    align-self: flex-start;
+    font-weight: 700;
+}
+
+.project-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#mobile-project-list {
+    width: 100%;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+#mobile-project-list .card {
+    width: 100%;
+    max-width: none;
+    justify-self: stretch;
+}
+
+#mobile-project-list .card-body h3 {
+    display: block;
+    overflow-wrap: anywhere;
+}
+
+#mobile-project-list .card-link {
+    display: block;
+    margin-top: 0.5rem;
+}
+
 /* ================================================================= */
 /* ABOUT PAGE                                                        */
 /* ================================================================= */
+
+/* About mobile content. */
+.mobile-about-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: var(--color-background);
+    border: solid 2px var(--color-border);
+    border-radius: 10px;
+    box-shadow: var(--shadow-small);
+}
+
+.mobile-about-card h4 {
+    color: var(--color-secondary);
+}
+
+.mobile-about-card p {
+    line-height: 1.6;
+}
+
+.mobile-about-year {
+    color: var(--color-secondary);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.mobile-skills .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.mobile-skills .card {
+    background-color: var(--color-background);
+    width: 100%;
+    max-width: none;
+    justify-self: stretch;
+    min-height: 125px;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    text-align: center;
+}
+
+.mobile-skills .card img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+#technical-interests-mobile .technical-interest-card {
+    margin-top: 1rem;
+    padding: 1rem;
+    box-shadow: var(--shadow-small);
+}
 
 /* 1. Brief introduction */
 #about-content > h3 {
@@ -683,7 +846,7 @@ main {
 
 .technical-interest-card h4 {
     margin-bottom: 0.75rem;
-    color: var(--color-secondary-hover);
+    color: var(--color-secondary);
 }
 
 .technical-interest-card p {
@@ -812,6 +975,17 @@ main {
 /* ================================================================= */
 /* CONTACT PAGE                                                      */
 /* ================================================================= */
+
+/* Contact desktop and mobile forms share the same form component. */
+#contact-mobile h3,
+#contact h3 {
+    margin-bottom: 0.75rem;
+}
+
+#contact-mobile p,
+#contact p {
+    line-height: 1.6;
+}
 
 #contact-form {
     background-color: var(--color-surface);
@@ -951,6 +1125,7 @@ footer p a {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* About page responsive overrides. */
     #about-skills .card {
         min-height: 200px;
     }
@@ -984,6 +1159,10 @@ footer p a {
         max-width: 45%;
     }
 
+    .hero-font {
+        font-size: 4.750rem
+    }
+
     /* Increase shared card density on wide screens. */
 
     .card-grid {
@@ -994,6 +1173,7 @@ footer p a {
         max-width: 450px;
     }
 
+    /* About page responsive overrides. */
     #about-skills .card {
         min-height: 220px;
     }
@@ -1020,7 +1200,7 @@ footer p a {
         justify-content: center;
     }
 
-    /* Place featured and certificate cards side by side. */
+    /* Projects page responsive overrides. */
 
     #featured-project .featured-card {
         flex-direction: row;
