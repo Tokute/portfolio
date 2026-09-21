@@ -55,7 +55,7 @@ h5 { font-size: 1.5rem; }       /* 24px */
 }
 
 /* ================================================================= */
-/* DESIGN TOKENS: COLORS AND SHADOWS                                 */
+/* DESIGN TOKENS: COLORS, SHADOWS, AND BORDER RADIUS                 */
 /* ================================================================= */
 
 :root {
@@ -76,6 +76,11 @@ h5 { font-size: 1.5rem; }       /* 24px */
     --color-error: #ef4444;
 
     --color-on-primary: #ffffff;
+
+    /* Border Radius Tokens */
+    --radius-small: 4px;
+    --radius-medium: 8px;
+    --radius-large: 12px;
 
     --shadow-small: 0 2px 8px -2px #00000059;
     --shadow-medium: 0 4px 24px -2px #00000059;
@@ -235,7 +240,7 @@ main {
     padding: 2%;
     width: 40%;
     text-align: center;
-    border-radius: 4px;
+    border-radius: var(--radius-small);
     background-color: var(--color-background);
     border: 2px solid var(--color-border);
     color: var(--color-text);
@@ -275,6 +280,7 @@ main {
 /* ================================================================= */
 
 /* Reusable card grid and project card components. */
+
 .card-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -286,7 +292,7 @@ main {
 .card {
     background-color: var(--color-surface);
     border: solid 2px var(--color-border);
-    border-radius: 12px;
+    border-radius: var(--radius-large);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -342,7 +348,7 @@ main {
 .badge {
     display: inline-block;
     padding: 0.2em 0.7em;
-    border-radius: 4px;
+    border-radius: var(--radius-small);
     font-size: 0.7em;
     background-color: var(--color-primary);
     color: var(--color-on-primary);
@@ -371,7 +377,7 @@ main {
 .button-primary, .button-secondary {
     padding: 1rem 0.75rem;
     border: 2px solid var(--color-border);
-    border-radius: 12px;
+    border-radius: var(--radius-large);
     background-color: var(--color-primary);
     color: var(--color-on-primary);
     text-decoration: none;
@@ -394,7 +400,7 @@ main {
 
 .button-outline {
     border: 2px solid var(--color-border);
-    border-radius: 12px;
+    border-radius: var(--radius-large);
     background-color: transparent;
     padding: 1rem 0.75rem;
 }
@@ -441,6 +447,7 @@ main {
 }
 
 /* Index mobile content. */
+
 #mobile-projects {
     width: 100%;
     overflow: hidden;
@@ -475,6 +482,7 @@ main {
 /* ================================================================= */
 
 /* Featured project desktop and mobile card variants. */
+
 #featured-project h3 {
     padding: 0.5em 0;
 }
@@ -484,7 +492,7 @@ main {
     flex-direction: column;
     background-color: var(--color-surface);
     border: solid 2px var(--color-primary-hover);
-    border-radius: 12px;
+    border-radius: var(--radius-large);
     overflow: hidden;
 }
 
@@ -524,6 +532,7 @@ main {
 }
 
 /* Projects mobile counterpart. */
+
 #featured-project-mobile .featured-card {
     display: flex;
     flex-direction: column;
@@ -531,7 +540,7 @@ main {
     margin-top: 1rem;
     background-color: var(--color-background);
     border: solid 2px var(--color-border);
-    border-radius: 10px;
+    border-radius: var(--radius-large);
     overflow: hidden;
     box-shadow: var(--shadow-medium);
 }
@@ -594,6 +603,7 @@ main {
 /* ================================================================= */
 
 /* About mobile content. */
+
 .mobile-about-card {
     display: flex;
     flex-direction: column;
@@ -602,7 +612,7 @@ main {
     padding: 1rem;
     background-color: var(--color-background);
     border: solid 2px var(--color-border);
-    border-radius: 10px;
+    border-radius: var(--radius-large);
     box-shadow: var(--shadow-small);
 }
 
@@ -652,6 +662,7 @@ main {
 }
 
 /* 1. Brief introduction */
+
 #about-content > h3 {
     margin-bottom: 1.25rem;
 }
@@ -667,7 +678,7 @@ main {
     padding: 1.25rem;
     background-color: var(--color-background);
     border: solid 2px var(--color-border);
-    border-radius: 10px;
+    border-radius: var(--radius-large);
     box-shadow: var(--shadow-medium);
 }
 
@@ -740,6 +751,7 @@ main {
 }
 
 /* 3. Skills and technologies */
+
 #about-skills .card-grid {
     justify-items: stretch;
 }
@@ -789,11 +801,13 @@ main {
 }
 
 /* Keeps the learning label aligned at the bottom of the SQL card. */
+
 .learning-badge {
     margin-top: auto;
 }
 
 /* 4. Certifications */
+
 .certificate-list {
     display: flex;
     flex-direction: column;
@@ -809,7 +823,7 @@ main {
     overflow: hidden;
     background-color: var(--color-surface);
     border: solid 2px var(--color-border);
-    border-radius: 12px;
+    border-radius: var(--radius-large);
     box-shadow: var(--shadow-medium);
 }
 
@@ -839,16 +853,8 @@ main {
     font-size: 0.9em;
 }
 
-.certificate-link {
-    color: var(--color-primary-hover);
-    font-weight: 700;
-}
-
-.certificate-link:hover {
-    color: var(--color-secondary-hover);
-}
-
 /* 5. Technical interests */
+
 .technical-interest-grid {
     display: grid;
     gap: 1rem;
@@ -861,7 +867,7 @@ main {
     padding: 1.25rem;
     background-color: var(--color-background);
     border: solid 2px var(--color-border);
-    border-radius: 10px;
+    border-radius: var(--radius-large);
     box-shadow: var(--shadow-medium);
 }
 
@@ -889,6 +895,7 @@ main {
 }
 
 /* 6. Development philosophy */
+
 .philosophy-list {
     display: grid;
     gap: 0.75rem;
@@ -899,7 +906,7 @@ main {
 .philosophy-list li {
     padding: 0.8rem 1rem;
     background-color: var(--color-background);
-    border-radius: 0 6px 6px 0;
+    border-radius: var(--radius-small);
     box-shadow: var(--shadow-small);
 }
 
@@ -919,7 +926,7 @@ main {
     padding: 1.25rem;
     background-color: var(--color-surface);
     border: solid 2px var(--color-border);
-    border-radius: 10px;
+    border-radius: var(--radius-small);
 }
 
 .philosophy-group h4 {
@@ -934,6 +941,7 @@ main {
 }
 
 /* 7. Development journey */
+
 #development-journey > h3 {
     padding-bottom: 0.75rem;
     border-bottom: solid 2px var(--color-border);
@@ -945,7 +953,7 @@ main {
     margin-top: 1.5rem;
     padding: 1.25rem;
     background-color: var(--color-background);
-    border-radius: 10px;
+    border-radius: var(--radius-large);
     border: solid 2px var(--color-border);
     box-shadow: var(--shadow-small);
 }
@@ -954,7 +962,7 @@ main {
     width: fit-content;
     padding: 0.5rem 0.8rem;
     background-color: var(--color-secondary);
-    border-radius: 4px;
+    border-radius: var(--radius-small);
     color: var(--color-on-primary);
     font-size: 1.25rem;
     font-weight: 800;
@@ -983,8 +991,12 @@ main {
 }
 
 /* 8. Current learning interests reuse the technical-interest card layout. */
+
 .learning-interest-card {
-    background-color: var(--color-surface);
+    background-color: var(--color-background);
+    border: solid 2px var(--color-border);
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-small);
 }
 
 .interest-badges .current-learning-badge {
@@ -998,6 +1010,7 @@ main {
 /* ================================================================= */
 
 /* Contact desktop and mobile forms share the same form component. */
+
 #contact-mobile h3,
 #contact h3 {
     margin-bottom: 0.75rem;
@@ -1012,7 +1025,7 @@ main {
 .contact-form {
     background-color: var(--color-background);
     border: solid 2px var(--color-border);
-    border-radius: 12px;
+    border-radius: var(--radius-large);
     padding: 2%;
     margin: 1rem auto;
     width: 80%;
@@ -1039,7 +1052,7 @@ input[type="text"], input[type="email"], textarea {
     margin-top: 0.4em;
     font-size: 0.9em;
     border: 2px solid var(--color-border);
-    border-radius: 4px;
+    border-radius: var(--radius-small);
     background-color: var(--color-on-primary);
 }
 
@@ -1058,7 +1071,7 @@ input:focus, textarea:focus {
     width: 220px;
     padding: 0.5em;
     border: 0;
-    border-radius: 10px;
+    border-radius: var(--radius-large);
     color: var(--color-on-primary);
     background-color: var(--color-primary);
     font-size: 1em;
@@ -1076,7 +1089,7 @@ input:focus, textarea:focus {
 .alert {
     background-color: var(--color-surface);
     border: solid 2px var(--color-border);
-    border-radius: 12px;
+    border-radius: var(--radius-large);
     padding: 1.5em;
     margin: 1em auto;
     max-width: 600px;
@@ -1141,6 +1154,7 @@ input:focus, textarea:focus {
     }
 
     /* About page responsive overrides. */
+
     #about-skills .card {
         min-height: 200px;
     }
@@ -1189,6 +1203,7 @@ input:focus, textarea:focus {
     }
 
     /* About page responsive overrides. */
+
     #about-skills .card {
         min-height: 220px;
     }
