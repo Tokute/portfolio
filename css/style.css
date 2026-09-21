@@ -9,6 +9,11 @@ body, header, nav, main, footer, h1, h2, h3, h4, div, p, ul, li, section, articl
     border: 0;
 }
 
+/* Root font-size base for rem calculations (16px default) */
+html {
+    font-size: 16px;
+}
+
 /* ================================================================= */
 /* TYPOGRAPHY SYSTEM                                                 */
 /* ================================================================= */
@@ -18,7 +23,7 @@ body, header, nav, main, footer, h1, h2, h3, h4, div, p, ul, li, section, articl
 body, h1, h2, h3, h4, h5, p, a, ul, li, nav, header, main, section, article,
 footer, label, input, textarea, button, caption,
 .badge, .card-image, .card-link, .mobile-link,
-#contact-form, .alert {
+.contact-form, .alert {
     font-family: "Monda", sans-serif;
     color: var(--color-text);
 }
@@ -155,6 +160,7 @@ nav li a:visited {
 
 nav li a:hover {
     color: var(--color-primary);
+    box-shadow: var(--shadow-small);
 }
 
 /* Shared hero banner used across the site. */
@@ -202,7 +208,7 @@ main {
 
 /* Alternate surface used by mobile-only content sections. */
 
-.mobile-container {
+.mobile-container, .mobile-container--alt {
     background-color: var(--color-surface);
     margin-bottom: 1em;
     padding: 4%;
@@ -223,14 +229,14 @@ main {
 }
 
 /* Full-width action link used in mobile content. */
+
 .mobile-link {
     display: block;
     padding: 2%;
-    margin: 0.4em auto;
     width: 40%;
     text-align: center;
-    border-radius: 5px;
-    background-color: var(--color-on-primary);
+    border-radius: 4px;
+    background-color: var(--color-background);
     border: 2px solid var(--color-border);
     color: var(--color-text);
 }
@@ -244,6 +250,7 @@ main {
 .mobile-link:hover {
     background-color: var(--color-primary);
     color: var(--color-on-primary);
+    box-shadow: var(--shadow-small);
 }
 
 /* Generic content-section utility. */
@@ -299,7 +306,7 @@ main {
 }
 
 .card-body {
-    background-color: var(--color-background);
+    background-color: var(--color-surface);
     padding: 1em;
     flex-grow: 1;
 }
@@ -413,23 +420,24 @@ main {
     margin-bottom: 1rem;
 }
 
+#featured-projects > h3, #featured-projects > p {
+    text-align: right;
+}
+
 #featured-projects > p:first-of-type {
     margin-bottom: 1rem;
 }
 
-#socials ul li {
-    list-style-type: none;
-    display: inline-block;
+#socials-mobile-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
-.social-link {
-    display: block;
-    padding: 0.5em 1em;
-    margin: 0.5em;
-    border-radius: 6px;
-    background-color: var(--color-on-primary);
-    border: solid 2px var(--color-border);
-    color: var(--color-text);
+.social-links {
+    list-style-type: none;
 }
 
 /* Index mobile content. */
@@ -489,6 +497,10 @@ main {
     color: var(--color-on-primary);
     font-size: 1.5em;
     flex-shrink: 0;
+}
+
+.featured-card-body {
+    background-color: var(--color-background);
 }
 
 #featured-project .featured-card-body {
@@ -661,7 +673,7 @@ main {
 
 .intro-card h4 {
     margin-bottom: 0.75rem;
-    color: var(--color-secondary-hover);
+    color: var(--color-secondary);
 }
 
 .intro-card p {
@@ -683,20 +695,29 @@ main {
 }
 
 /* 2. Educational background */
-#educational-background h3 {
+
+#educational-background {
+    text-align: right;
+}
+
+#educational-background h3,
+#educational-background-mobile h3 {
     padding-bottom: 0.5rem;
 }
 
-#educational-background .education-list {
+#educational-background .education-list,
+#educational-background-mobile .education-list {
     list-style: none;
 }
 
-#educational-background .education-list > li {
+#educational-background .education-list > li,
+#educational-background-mobile .education-list > li {
     padding: 1rem 0;
     border-top: solid 2px var(--color-border);
 }
 
-#educational-background .education-list > li:last-of-type {
+#educational-background .education-list > li:last-of-type,
+#educational-background-mobile .education-list > li:last-of-type {
     border-bottom: solid 2px var(--color-border);
 }
 
@@ -987,16 +1008,18 @@ main {
     line-height: 1.6;
 }
 
-#contact-form {
-    background-color: var(--color-surface);
-    /* border: solid 2px var(--color-border); */
+
+.contact-form {
+    background-color: var(--color-background);
+    border: solid 2px var(--color-border);
     border-radius: 12px;
     padding: 2%;
-    margin: 0 auto;
+    margin: 1rem auto;
     width: 80%;
+    max-width: 850px;
 }
 
-#contact-form h3 {
+.contact-form h3 {
     color: var(--color-text);
     text-align: center;
     padding-bottom: 0.5em;
@@ -1030,7 +1053,7 @@ input:focus, textarea:focus {
     border-color: var(--color-border);
 }
 
-#contact-form input[type="submit"] {
+.contact-form input[type="submit"] {
     display: block;
     width: 220px;
     padding: 0.5em;
@@ -1043,8 +1066,9 @@ input:focus, textarea:focus {
     cursor: pointer;
 }
 
-#contact-form input[type="submit"]:hover {
+.contact-form input[type="submit"]:hover {
     background-color: var(--color-primary-hover);
+    box-shadow: var(--shadow-small);
 }
 
 /* Shared feedback alert variants. */
@@ -1108,6 +1132,12 @@ input:focus, textarea:focus {
 
     .card-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Index page limit social-links max-width */
+
+    .mobile-link {
+        max-width: 250px;
     }
 
     /* About page responsive overrides. */
