@@ -435,7 +435,7 @@ main {
     margin-bottom: var(--spacing-default);
 }
 
-#socials > h3, p {
+#socials > h3, #socials > p {
     text-align: center;
 }
 
