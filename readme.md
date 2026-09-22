@@ -29,12 +29,14 @@ All pages share a common layout: sticky header with logo + navigation, a hero ba
 ## Design System
 
 ### Typography
-- **Black Ops One** — display/hero type (`.hero-font`, 4.75rem).
+
+- **Black Ops One** — display/hero type (`.hero-font`, 2.5rem base, 4.75rem at desktop).
 - **Monda** — applied to every relevant tag via a single grouped rule at the top of the stylesheet (`font-family: "Monda", sans-serif`).
-- Heading scale: `h1` 3rem, `h2` 2.5rem, `h3` 1.5rem, `h4` 1.25rem, `h5` 1rem.
-- Text utility classes: `.text-big` 1.5rem, `.text-regular` 1rem, `.text-small` 0.75rem, `.caption` 0.625rem.
+- Heading scale: `h1` 4rem, `h2` 3rem, `h3` 2.5rem, `h4` 2rem, `h5` 1.5rem.
+- Text utility classes: `.text-big` 1.25rem, `.text-regular` 1rem, `.text-small` 0.75rem, `.caption` 0.625rem.
 
 ### Color System (`:root` variables)
+
 | Variable | Value |
 |----------|-------|
 | `--color-primary` | `#ff8800` |
@@ -51,27 +53,25 @@ All pages share a common layout: sticky header with logo + navigation, a hero ba
 | `--color-error` | `#ef4444` |
 | `--color-on-primary` | `#ffffff` |
 
-### Shadow System
-- `--shadow-small`: `0 2px 8px -2px #00000059`
-- `--shadow-medium`: `0 4px 24px -2px #00000059`
-- `--shadow-large`: `0 10px 40px -8px #00000059`
-
 ## Reusable Components
 
 - **Cards** (`.card-grid`, `.card`) — mobile-first grid of project cards. Each card has a `.card-image` band (160px) and a `.card-body` (title with link, description, badges).
 - **Featured card** (`#featured-project .featured-card`) — larger, standout card. Stacks vertically on mobile, flips to a horizontal image-left / content-right layout on desktop.
-- **Skill cards** (`.skill-card`) — used on `about.html`; stretch to fill their grid columns (`justify-items: stretch`).
-- **Badges** (`.badge`, `.badge-outline`, `.badge-success`, `.badge-warning`, `.badge-error`) — status/label chips.
+- **Skill cards** — used on `about.html`; reuse the `.card` class with selectors scoped under `#about-skills` to fill grid columns (`justify-items: stretch`).
+- **Badges** (`.badge`, `.badge-outline`, `.badge-success`, `.badge-warning`, `.badge-error`, `.current-learning-badge`) — status/label chips; `.current-learning-badge` indicates current learning focus.
 - **Buttons** — `.button-primary` (primary fill), `.button-secondary` (secondary fill), and `.button-outline` (transparent). All share `padding: 1rem 0.75rem`, a `2px` border, `12px` radius, and a hover shadow (`--shadow-small`) plus their respective hover background. Hero CTAs on the home page use `#view-projects` / `#contact-me` with `.button-outline`.
 - **Alerts** (`.alert`, `.alert-success`, `.alert-error`) — message boxes for form feedback.
 - **Mobile links** (`.mobile-link`) — full-width call-to-action buttons used in the mobile-only content sections.
+- **Project badges** (`.project-badges`) — used to label featured projects (e.g., "Featured").
+- **Learning badge** (`.learning-badge`) — used in the skills section to highlight current learning topics.
+- **Site footer** (`.site-footer`) — contains copyright and domain information.
 
 ## Layout & Responsiveness
 
 - `#container` holds the page; a `.header-container` flex bar aligns the logo and nav.
 - The `.mobile` / `.tablet-desktop` pattern toggles content by viewport:
   - **Mobile (base)**: `.mobile` shown, `.tablet-desktop` hidden. Content stacks; card grids are single-column.
-  - **Tablet (≥630px)**: `.tablet-desktop` shown, `.mobile` hidden; card grids become 2 columns.
+  - **Tablet (≥768px)**: `.tablet-desktop` shown, `.mobile` hidden; card grids become 2 columns.
   - **Desktop (≥1015px)**: card grids become 3 columns; cards widen; the featured project goes horizontal.
 - **Print**: hides navigation and hero, and resets to white/black.
 - Header is `position: sticky` with a bottom border.
