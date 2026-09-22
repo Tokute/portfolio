@@ -22,7 +22,7 @@ html {
 
 body, h1, h2, h3, h4, h5, p, a, ul, li, nav, header, main, section, article,
 footer, label, input, textarea, button, caption,
-.badge, .card-image, .card-link, .mobile-link,
+.badge, .card-image, .card-link, .socials-link,
 .contact-form, .alert {
     font-family: "Monda", sans-serif;
     color: var(--color-text);
@@ -198,10 +198,6 @@ nav li a:hover {
     max-width: 45%;
 }
 
-#hero .mobile-link {
-    font-size: 1.2em;
-}
-
 /* Shared main-content surface. */
 
 main {
@@ -245,7 +241,8 @@ main {
 
 /* Full-width action link used in mobile content. */
 
-.mobile-link {
+
+.socials-link {
     display: block;
     padding: 2%;
     width: 40%;
@@ -256,15 +253,9 @@ main {
     color: var(--color-text);
 }
 
-.mobile-link a {
-    text-decoration: none;
-    font-size: 1.5em;
-    display: block;
-}
-
-.mobile-link:hover {
-    background-color: var(--color-primary);
+.socials-link:hover {
     color: var(--color-on-primary);
+    background-color: var(--color-primary);
     box-shadow: var(--shadow-small);
 }
 
@@ -442,6 +433,10 @@ main {
 
 #featured-projects > p:first-of-type {
     margin-bottom: var(--spacing-default);
+}
+
+#socials > h3, p {
+    text-align: center;
 }
 
 #socials-mobile-buttons {
@@ -1193,7 +1188,7 @@ input:focus, textarea:focus {
 
     /* Index page limit social-links max-width */
 
-    .mobile-link {
+    .socials-link {
         max-width: 250px;
     }
 
