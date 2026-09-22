@@ -825,16 +825,17 @@ main {
 
 .certificate-list {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--spacing-medium);
 }
 
 .certificate-card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     max-width: 700px;
     width: 100%;
-    margin: 0 auto;
     overflow: hidden;
     background-color: var(--color-surface);
     border: solid 2px var(--color-border);
@@ -843,21 +844,30 @@ main {
 }
 
 .certificate-image {
-    min-height: 180px;
+    min-height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--color-primary);
     color: var(--color-on-primary);
     font-size: 1.2em;
+    text-align: center;
+}
+
+.certificate-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .certificate-body {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     gap: 0.75rem;
     padding: 1.5rem;
+    text-align: center;
 }
 
 .certificate-body h4 {
@@ -1231,16 +1241,17 @@ input:focus, textarea:focus {
     }
 
     .certificate-card {
+        min-width: 800px;
         flex-direction: row;
     }
 
     .certificate-image {
-        width: 40%;
-        min-height: 220px;
+        width: 60%;
+        height: 100%;
     }
 
     .certificate-body {
-        width: 60%;
+        width: 40%;
         justify-content: center;
     }
 
