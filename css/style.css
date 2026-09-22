@@ -94,6 +94,7 @@ h5 { font-size: 1.5rem; }       /* 24px */
     --spacing-block-separator: 3rem;
     --spacing-major-section: 4rem;
     --spacing-large-major-section: 6rem;
+    /* Regarding values such as 0.75rem, 1.25rem, etc. These values are for fine-tuning.*/
 }
 
 /* ================================================================= */
@@ -349,16 +350,16 @@ main {
 }
 
 .card-body .badge {
-    margin: 0.3em 0.3em 0 0;
+    margin: 0.3rem 0.3rem 0 0;
 }
 
 /* Shared status and technology badges. */
 
 .badge {
     display: inline-block;
-    padding: 0.2em 0.7em;
+    padding: 0.2rem 0.7rem;
     border-radius: var(--radius-small);
-    font-size: 0.7em;
+    font-size: 0.7rem;
     background-color: var(--color-primary);
     color: var(--color-on-primary);
 }
@@ -493,7 +494,7 @@ main {
 /* Featured project desktop and mobile card variants. */
 
 #featured-project h3 {
-    padding: 0.5em 0;
+    padding: var(--spacing-tight) 0;
 }
 
 #featured-project .featured-card {
@@ -521,23 +522,23 @@ main {
 }
 
 #featured-project .featured-card-body {
-    padding: 1.5em;
+    padding: var(--spacing-medium);
     flex-grow: 1;
 }
 
 #featured-project .featured-card-body h3 {
     color: var(--color-text);
     font-size: 1.5em;
-    padding-bottom: 0.5em;
+    padding-bottom: var(--spacing-tight);
 }
 
 #featured-project .featured-card-body p {
     font-size: 1em;
-    padding: 0 0 0.5em 0;
+    padding: 0 0 var(--spacing-tight) 0;
 }
 
 #featured-project .featured-card-body .badge {
-    margin: 0.3em 0.3em 0 0;
+    margin: 0.3rem 0.3rem 0 0;
 }
 
 /* Projects mobile counterpart. */
@@ -820,7 +821,7 @@ main {
 .certificate-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: var(--spacing-medium);
 }
 
 .certificate-card {
@@ -873,7 +874,7 @@ main {
 .technical-interest-card {
     display: flex;
     flex-direction: column;
-    padding: 1.25rem;
+    padding: var(--spacing-default);
     background-color: var(--color-background);
     border: solid 2px var(--color-border);
     border-radius: var(--radius-large);
@@ -1029,7 +1030,6 @@ main {
 #contact p {
     line-height: 1.6;
 }
-
 
 .contact-form {
     background-color: var(--color-background);
