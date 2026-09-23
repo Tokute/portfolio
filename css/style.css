@@ -303,18 +303,20 @@ main {
 
 .card-image {
     background-color: var(--color-primary);
-    height: 160px;
+    min-height: 1rem;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-on-primary);
-    font-size: 1.2em;
+    font-size: 1.2rem;
 }
 
 .card-body {
+    display: flex;
+    flex-direction: column;
     background-color: var(--color-surface);
-    padding: 1em;
+    padding: var(--spacing-default);
     flex-grow: 1;
 }
 
@@ -330,18 +332,26 @@ main {
 .card-body p {
     font-size: 0.9em;
     padding: 0.5em 0;
+    align-self: start;
+}
+
+.card-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-tight);
+    margin-top: auto;
+}
+
+.card-body .badge {
+    margin: 0;
 }
 
 .card-link {
-    color: var(--color-primary);
+    color: var(--color-muted);
 }
 
 .card-link:hover {
     color: var(--color-primary-hover);
-}
-
-.card-body .badge {
-    margin: 0.3rem 0.3rem 0 0;
 }
 
 /* Shared status and technology badges. */
@@ -503,7 +513,7 @@ main {
 
 #featured-project .featured-card-image {
     background-color: var(--color-primary);
-    height: 200px;
+    height: var(--spacing-default);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -551,7 +561,7 @@ main {
 }
 
 #featured-project-mobile .featured-card-image {
-    height: 130px;
+    height: var(--spacing-default);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -699,7 +709,7 @@ main {
 .intro-card {
     display: flex;
     flex-direction: column;
-    padding: 1.25rem;
+    padding: var(--spacing-default);
     background-color: var(--color-background);
     border: solid 2px var(--color-border);
     border-radius: var(--radius-large);
@@ -1186,6 +1196,10 @@ input:focus, textarea:focus {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .card-link {
+        text-align: right;
+    }
+
     /* Index page limit social-links max-width */
 
     .socials-link {
@@ -1272,6 +1286,10 @@ input:focus, textarea:focus {
 
     /* Projects page responsive overrides. */
 
+    .featured-card {
+        box-shadow: var(--shadow-large);
+    }
+
     #featured-project .featured-card {
         flex-direction: row;
     }
@@ -1279,7 +1297,7 @@ input:focus, textarea:focus {
     #featured-project .featured-card-image {
         width: 40%;
         height: auto;
-        min-height: 240px;
+        min-height: var(--spacing-default);
     }
 
     #featured-project .featured-card-body {
