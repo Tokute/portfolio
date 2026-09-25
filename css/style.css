@@ -241,10 +241,12 @@ main {
 
 /* Full-width action link used in mobile content. */
 
-
 .socials-link {
-    display: block;
-    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-tight);
+    padding: var(--spacing-default);
     width: 40%;
     text-align: center;
     border-radius: var(--radius-small);
@@ -259,7 +261,10 @@ main {
     box-shadow: var(--shadow-small);
 }
 
-/* Generic content-section utility. */
+.socials-link img {
+	width: 24px;
+	height: auto;
+}
 
 .content-section {
     padding: 2%;
@@ -275,10 +280,6 @@ main {
     font-size: 1em;
     padding: 0.5em 0;
 }
-
-/* ================================================================= */
-/* SHARED COMPONENTS                                                  */
-/* ================================================================= */
 
 /* Reusable card grid and project card components. */
 
@@ -331,7 +332,7 @@ main {
 
 .card-body p {
     font-size: 0.9rem;
-    padding: 0.5rem 0;
+    padding: var(--spacing-tight) 0;
     align-self: start;
 }
 
@@ -1150,21 +1151,79 @@ input:focus, textarea:focus {
 
 /* Shared site footer. */
 
-.site-footer {
-    padding: 0.8em 0;
+#site-footer {
+    padding: var(--spacing-tight) 0;
     background-color: var(--color-surface);
     border-top: solid 2px var(--color-border);
 }
 
-.site-footer p {
+#site-footer p {
     font-size: 0.75em;
-    text-align: center;
-    color: var(--color-text);
-    padding: 0.2em;
 }
 
-.site-footer a {
-    color: var(--color-primary);
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-medium);
+    padding: var(--spacing-large);
+    text-align: center;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-tight);
+}
+
+.footer-tagline {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    font-style: italic;
+    margin: 0 auto;
+}
+
+.footer-heading {
+    font-size: 1.125rem;
+    color: var(--color-text);
+    margin: 0 0 var(--spacing-tight) 0;
+    padding-bottom: var(--spacing-tight);
+    border-bottom: solid 1px var(--color-border);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-socials {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column  ;
+    justify-content: center;
+    gap: var(--spacing-tight);
+    flex-wrap: wrap;
+}
+
+.footer-social-link {
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--color-text);
+    font-size: 0.8rem;
+}
+
+.footer-social-link:hover {
+    color: var(--color-on-primary);
+    background-color: var(--color-primary);
+    border: 2px solid transparent;
+    border-radius: var(--radius-small);
+    box-shadow: var(--shadow-small);
+}
+
+.footer-contact-info {
+    font-size: 0.875rem;
+    color: var(--color-text);
+    margin: 0;
 }
 
 /* ================================================================= */
@@ -1201,6 +1260,11 @@ input:focus, textarea:focus {
         max-width: 250px;
     }
 
+    .socials-link img {
+        width: 48px;
+        height: auto;
+    }
+
     /* About page responsive overrides. */
 
     #about-skills .card {
@@ -1222,6 +1286,31 @@ input:focus, textarea:focus {
 
     .intro-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Footer */
+
+    .footer-content {
+        text-align: left;
+    }
+    
+    .footer-section {
+        align-items: flex-start;
+    }
+    
+    .footer-tagline {
+        max-width: none;
+        margin: 0;
+    }
+    
+    .footer-heading {
+        margin-left: 0;
+        margin-right: 0;
+        width: auto;
+    }
+    
+    .footer-socials {
+        justify-content: flex-start;
     }
 }
 
@@ -1296,5 +1385,9 @@ input:focus, textarea:focus {
 
     nav, #hero {
         display: none;
+    }
+
+    .footer-heading {
+        font-size: 1.25rem;
     }
 }
