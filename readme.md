@@ -2,6 +2,10 @@
 
 Portfolio website for midterm output. A static, HTML + CSS portfolio implementing a **tonal orange** design system (derived from a Figma style guide) with **Black Ops One** display and **Monda** body type.
 
+## Project Notes
+
+**View Full Certificate** hyperlinks are purposefully left empty for now.
+
 ## Project Structure
 
 ```
@@ -11,7 +15,9 @@ developer-portfolio/
 ├── projects.html     # Projects — featured project + project grid
 ├── contact.html      # Contact — get in touch form
 ├── css/
-│   └── style.css     # Global stylesheet (single source of truth)
+│   └── style.css     # Global stylesheet
+├── images/           # Where logo.pngs are stored
+│   └── certifications  # Where certification images are stored
 └── readme.md
 ```
 
@@ -19,12 +25,12 @@ developer-portfolio/
 
 | Page | Purpose |
 |------|---------|
-| `index.html` | Landing page with hero tagline, welcome intro, and a grid of featured project cards. |
+| `index.html` | Landing page with hero tagline, welcome intro, a grid of featured project cards, and social links section. |
 | `about.html` | Short bio plus a skills section (`#about-skills`) using skill cards for Languages, Tools, and Focus Areas. |
 | `projects.html` | A large, standout **featured project** (`#featured-project`) followed by a responsive grid of six project cards. |
 | `contact.html` | A contact form (`#contact-form`) with name, email, and message fields. |
 
-All pages share a common layout: sticky header with logo + navigation, a hero banner, a `<main>` content area, and a footer (`© Copyright 2026. All Rights Reserved. Created by Ned Basilio`).
+All pages share a common layout: sticky header with logo + navigation, a hero banner, a `<main>` content area, and a footer.
 
 ## Design System
 
@@ -66,6 +72,8 @@ All pages share a common layout: sticky header with logo + navigation, a hero ba
 - **Learning badge** (`.learning-badge`) — used in the skills section to highlight current learning topics.
 - **Site footer** (`.site-footer`) — contains copyright and domain information.
 
+- **Social links** (`.socials-link`) — flex column container for platform icons with labels
+
 ## Layout & Responsiveness
 
 - `#container` holds the page; a `.header-container` flex bar aligns the logo and nav.
@@ -75,9 +83,3 @@ All pages share a common layout: sticky header with logo + navigation, a hero ba
   - **Desktop (≥1015px)**: card grids become 3 columns; cards widen; the featured project goes horizontal.
 - **Print**: hides navigation and hero, and resets to white/black.
 - Header is `position: sticky` with a bottom border.
-
-## Accessibility & Semantics
-
-- Semantic elements: `header`, `nav`, `main`, `section`, `article`, `footer`.
-- Proper `<label for>` / input associations in the contact form.
-- Responsive viewport meta tag and relative font sizing throughout.
