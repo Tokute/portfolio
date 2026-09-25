@@ -122,19 +122,20 @@ a {
 header {
     background-color: var(--color-background);
     border-bottom: solid 2px var(--color-border);
+}
+
+.header-container {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1000;
-}
-
-.header-container {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     width: 100%;
     padding: 0;
+    background-color: var(--color-background);
 }
 
 header h1 {
@@ -1241,6 +1242,7 @@ input:focus, textarea:focus {
     /* Nav styles */
 
     .header-container {
+        position: static;
         justify-content: space-between;
         padding: 0 2%;
     }
