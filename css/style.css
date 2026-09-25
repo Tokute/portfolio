@@ -132,18 +132,18 @@ header {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
-    padding: 0 2%;
+    padding: 0;
 }
 
 header h1 {
     font-size: 1.5em;
-    padding: 0.5em 0;
+    padding: 0.5rem 0;
 }
 
 nav {
-    padding: 1% 0;
+    padding: var(--spacing-tight) 0;
 }
 
 nav ul {
@@ -1237,6 +1237,14 @@ input:focus, textarea:focus {
     .mobile {
         display: none;
     }
+
+    /* Nav styles */
+
+    .header-container {
+        justify-content: space-between;
+        padding: 0 2%;
+    }
+    
 
     /* Give the hero copy more room at tablet widths. */
 
