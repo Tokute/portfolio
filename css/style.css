@@ -439,7 +439,7 @@ main {
 }
 
 #featured-projects > h3, #featured-projects > p {
-    text-align: right;
+    text-align: center;
 }
 
 #featured-projects > p:first-of-type {
