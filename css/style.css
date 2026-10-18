@@ -108,34 +108,89 @@ h5 { font-size: 1.5rem; }       /* 24px */
 
 #search-bar {
     position: fixed;
-    top: var(--spacing-large);
+    top: var(--spacing-large-major-section);
     left: 50%;
     transform: translateX(-50%);
     background-color: #fff;
-    padding: 0.5rem 1rem;
     border-radius: 30px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    z-index: 1001;
+    transition: all 0.3s ease;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    overflow: visible;
 }
 
-#search-bar input {
-  width: 100%;
-  padding: 10px 15px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 30px;
+#search-bar[data-state="collapsed"] {
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
 }
 
-#search-bar button {
+#search-bar[data-state="expanded"] {
+    width: 300px;
+    height: 60px;
+    padding: 0;
+    justify-content: flex-start;
+}
+
+#search-circle {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+#search-circle img {
+    width: 24px;
+    height: 24px;
+}
+
+#search-expanded {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 0 0 0;
+    height: 100%;
+}
+
+#search-bar[data-state="expanded"] #search-expanded {
+    display: flex;
+    padding: 0.5rem 1rem;
+    flex: 1 1 auto;
+}
+
+#search-expanded input {
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    margin-top: 0;
+    outline: none;
+}
+
+#search-expanded button {
     background-color: var(--color-primary);
     color: var(--color-on-primary);
     border: none;
-    margin-top: var(--spacing-tight);
-    margin-bottom: var(--spacing-tight);
     padding: 0.5rem 1rem;
     border-radius: 30px;
     cursor: pointer;
+    transition: background-color 0.2s ease;
 }
+
+#search-expanded button:hover {
+    background-color: var(--color-primary-hover);
+}
+
 
 /* Suggestions dropdown styling */
 

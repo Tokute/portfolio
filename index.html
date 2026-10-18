@@ -41,9 +41,14 @@
 			</div>
 
 			<main>
-				<div id="search-bar">
-					<input type="text" id="search-input" placeholder="Search info...">
-					<button id="search-button" onclick="performSearch()">Search</button>
+				<div id="search-bar" data-state="collapsed">
+					<div id="search-circle">
+						<img src="assets/search.png" alt="Search" id="search-icon">
+					</div>
+					<div id="search-expanded">
+						<input type="text" id="search-input" placeholder="Search info...">
+						<button id="search-button">Search</button>
+					</div>
 
 					<div id="search-suggestions" class="suggestions-dropdown"></div>
 				</div>
