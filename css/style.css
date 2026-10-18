@@ -98,6 +98,75 @@ h5 { font-size: 1.5rem; }       /* 24px */
 }
 
 /* ================================================================= */
+/* SEARCH BAR ESSENTIALS                                             */
+/* ================================================================= */
+
+.highlight {    /* this class is applied when searching to ensure that the user sees the searched element */
+    background-color: #ffd856 !important;
+    transition: background-color 0.5s ease;
+}
+
+#search-bar {
+    position: fixed;
+    top: var(--spacing-large);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#search-bar input {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+}
+
+#search-bar button {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    border: none;
+    margin-top: var(--spacing-tight);
+    margin-bottom: var(--spacing-tight);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* Suggestions dropdown styling */
+
+.suggestions-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: none; /* Hidden by default, will be modified by script */
+}
+
+/* Individual suggestion items */
+.suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.suggestion-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* ================================================================= */
 /* BASE AND SITE-WIDE LAYOUT                                         */
 /* ================================================================= */
 
