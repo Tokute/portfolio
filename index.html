@@ -9,7 +9,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Monda:wght@400..700&display=swap" rel="stylesheet">
-
+		<script type="text/javascript" src="script.js" defer></script>
 	</head>
 
 	<body>
@@ -41,6 +41,13 @@
 			</div>
 
 			<main>
+				<div id="search-bar">
+					<input type="text" id="search-input" placeholder="Search info...">
+					<button id="search-button" onclick="performSearch()">Search</button>
+
+					<div id="search-suggestions" class="suggestions-dropdown"></div>
+				</div>
+
 				<section class="mobile mobile-container">
 					<div id="mobile-index-content">
 						<h3>Welcome to My Portfolio</h3>
