@@ -1,12 +1,18 @@
 // Search functionality with suggestions dropdown and toggle states
+// Set up search controls and their event handlers after the page markup is ready.
 document.addEventListener('DOMContentLoaded', function() {
     // Get DOM elements
     const searchBar = document.getElementById('search-bar');
+    if (!searchBar) {
+        return;
+    }
+
     const searchCircle = document.getElementById('search-circle');
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-button');
     const suggestionsContainer = document.getElementById('search-suggestions');
 
+    // Hide the suggestions list when the query is empty or search is complete.
     function hideSuggestions() {
         suggestionsContainer.style.display = 'none';
     }
@@ -14,39 +20,44 @@ document.addEventListener('DOMContentLoaded', function() {
     // Comprehensive list of searchable sections across all pages
     const searchableItems = [
         // Index.html sections
-        { id: 'hero', title: 'Hero Section' },
-        { id: 'mobile-index-content', title: 'Welcome to My Portfolio (Mobile)' },
-        { id: 'intro', title: 'Welcome to My Portfolio' },
-        { id: 'featured-projects', title: 'Featured Projects' },
-        { id: 'mobile-projects', title: 'Projects (Mobile)' },
-        { id: 'socials', title: 'Connect With Me' },
-        { id: 'site-footer', title: 'Footer' },
+        { id: 'hero', title: 'Hero Section', page: 'index.html' },
+        { id: 'mobile-index-content', title: 'Welcome to My Portfolio (Mobile)', page: 'index.html' },
+        { id: 'intro', title: 'Welcome to My Portfolio', page: 'index.html' },
+        { id: 'featured-projects', title: 'Featured Projects (Home)', page: 'index.html' },
+        { id: 'mobile-projects', title: 'Projects (Mobile)', page: 'index.html' },
+        { id: 'socials', title: 'Connect With Me', page: 'index.html' },
+        { id: 'site-footer', title: 'Footer', page: 'index.html' },
 
         // About.html sections
-        { id: 'about-mobile-content', title: 'About Me (Mobile)' },
-        { id: 'educational-background-mobile', title: 'Education (Mobile)' },
-        { id: 'about-skills-mobile', title: 'Skills & Technologies (Mobile)' },
-        { id: 'certifications-mobile', title: 'Certifications (Mobile)' },
-        { id: 'technical-interests-mobile', title: 'Technical Interests (Mobile)' },
-        { id: 'development-philosophy-mobile', title: 'Development Philosophy (Mobile)' },
-        { id: 'development-journey-mobile', title: 'Development Journey (Mobile)' },
-        { id: 'current-learning-interests-mobile', title: 'Current Learning Interests (Mobile)' },
-        { id: 'about-content', title: 'Brief Introduction' },
-        { id: 'educational-background', title: 'Educational Background' },
-        { id: 'about-skills', title: 'Skills & Technologies' },
-        { id: 'certifications', title: 'Certifications' },
-        { id: 'technical-interests', title: 'Technical Interests' },
-        { id: 'development-philosophy', title: 'Development Philosophy' },
-        { id: 'development-journey', title: 'Development Journey' },
-        { id: 'current-learning-interests', title: 'Current Learning Interests' },
+        { id: 'about-mobile-content', title: 'About Me (Mobile)', page: 'about.html' },
+        { id: 'educational-background-mobile', title: 'Education (Mobile)', page: 'about.html' },
+        { id: 'about-skills-mobile', title: 'Skills & Technologies (Mobile)', page: 'about.html' },
+        { id: 'certifications-mobile', title: 'Certifications (Mobile)', page: 'about.html' },
+        { id: 'technical-interests-mobile', title: 'Technical Interests (Mobile)', page: 'about.html' },
+        { id: 'development-philosophy-mobile', title: 'Development Philosophy (Mobile)', page: 'about.html' },
+        { id: 'development-journey-mobile', title: 'Development Journey (Mobile)', page: 'about.html' },
+        { id: 'current-learning-interests-mobile', title: 'Current Learning Interests (Mobile)', page: 'about.html' },
+        { id: 'about-content', title: 'Brief Introduction', page: 'about.html' },
+        { id: 'educational-background', title: 'Educational Background', page: 'about.html' },
+        { id: 'about-skills', title: 'Skills & Technologies', page: 'about.html' },
+        { id: 'certifications', title: 'Certifications', page: 'about.html' },
+        { id: 'technical-interests', title: 'Technical Interests', page: 'about.html' },
+        { id: 'development-philosophy', title: 'Development Philosophy', page: 'about.html' },
+        { id: 'development-journey', title: 'Development Journey', page: 'about.html' },
+        { id: 'current-learning-interests', title: 'Current Learning Interests', page: 'about.html' },
 
         // Projects.html sections
-        { id: 'featured-project-mobile', title: 'Featured Project (Mobile)' },
-        { id: 'featured-project', title: 'Featured Project' },
-        { id: 'mobile-project-list', title: 'Projects List (Mobile)' }
+        { id: 'featured-project-mobile', title: 'Featured Project (Mobile)', page: 'projects.html' },
+        { id: 'featured-project', title: 'Featured Project (Projects)', page: 'projects.html' },
+        { id: 'mobile-project-list', title: 'Projects List (Mobile)', page: 'projects.html' },
+
+        // Contact.html sections
+        { id: 'contact-mobile', title: 'Contact (Mobile)', page: 'contact.html' },
+        { id: 'contact', title: 'Contact', page: 'contact.html' }
     ];
 
     // Toggle search bar state when circle is clicked
+    // Expand and focus the search input, or collapse the bar and clear its state.
     searchCircle.addEventListener('click', function() {
         if (searchBar.getAttribute('data-state') === 'collapsed') {
             searchBar.setAttribute('data-state', 'expanded');
@@ -61,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Perform search and jump to element
+    // Scroll to a matching section on this page or navigate to its page first.
     function performSearch() {
         const query = searchInput.value.trim();
 
@@ -71,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         hideSuggestions();
 
-        // Find the element on the page matching the typed ID
         const targetElement = document.getElementById(query);
 
         if (targetElement) {
@@ -83,16 +94,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Add a temporary highlight effect so the user sees it
             targetElement.classList.add('highlight');
+            // Schedule removal of the highlight after two seconds.
             setTimeout(() => {
                 targetElement.classList.remove('highlight');
             }, 2000);
         } else {
-            alert('No matching section found. Try searching for: hero, intro, featured-projects, about-content, etc.');
-            searchInput.value = '';
+            // Match the query to its registered page and section.
+            const matchingItem = searchableItems.find(item => item.id === query);
+            if (matchingItem) {
+                // Load the page containing the section; the URL fragment scrolls to its ID.
+                window.location.href = `${matchingItem.page}#${encodeURIComponent(matchingItem.id)}`;
+            } else {
+                alert('No matching section found. Try searching for: hero, intro, featured-projects, about-content, etc.');
+                searchInput.value = '';
+            }
         }
     }
 
+    // Replace the suggestion list with the supplied matching search results.
     function renderSuggestions(matches) {
+        // Map each result to a clickable element before replacing the dropdown contents.
         suggestionsContainer.replaceChildren(...matches.map(item => {
             const suggestion = document.createElement('div');
             suggestion.classList.add('suggestion-item');
@@ -104,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Show suggestions as user types
+    // Filter searchable sections by ID or title and refresh the dropdown.
     searchInput.addEventListener('input', function() {
         const query = searchInput.value.toLowerCase().trim();
 
@@ -113,6 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Filter items that match the ID or title
+        // Keep entries whose IDs or titles contain the typed query.
         const matches = searchableItems.filter(item =>
             item.id.toLowerCase().includes(query) ||
             item.title.toLowerCase().includes(query)
@@ -126,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Delegate clicks so each rendered suggestion does not need its own listener
+    // Use the selected suggestion's stored ID to perform the corresponding search.
     suggestionsContainer.addEventListener('click', function(event) {
         if (!(event.target instanceof Element)) {
             return;
@@ -144,6 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
     searchButton.addEventListener('click', performSearch);
 
     // Enter key pressed in input field
+    // Submit the current query when Enter is pressed instead of inserting a newline.
     searchInput.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
             event.preventDefault();
@@ -152,6 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Hide dropdown if user clicks anywhere else on the page
+    // Close suggestions on outside clicks while leaving clicks inside the search alone.
     document.addEventListener('click', function(event) {
         if (!searchBar.contains(event.target)) {
             hideSuggestions();
