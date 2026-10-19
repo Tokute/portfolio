@@ -36,50 +36,44 @@
 			</div>
 
 			<main>
-				<section id="contact-mobile" class="mobile mobile-container">
+				<section id="contact" class="generic-container">
 					<h3>Get in Touch</h3>
 					<p>
 						Have a project in mind or just want to say hello? Send me a message and I&rsquo;ll get back to you.
 					</p>
 					<div class="contact-card">
 						<form class="contact-form" action="#" method="post">
-							<label for="name-mobile">Name:
-								<input required id="name-mobile" type="text" placeholder="Your name">
-							</label>
 
-							<label for="email-mobile">Email:
-								<input required id="email-mobile" type="email" placeholder="you@example.com">
-							</label>
+							<!-- required attribute has been removed. Will be handled by script.js -->
+							<div class="input-control">
+								<label for="name">Name:
+									<input id="name" type="text" placeholder="Your name">
+								</label>
+							</div>
 
-							<label for="message-mobile">Message:
-								<textarea required id="message-mobile" placeholder="Tell me about your project..." rows="4"></textarea>
-							</label>
+							<div class="input-control">
+								<label for="email">Email:
+									<input id="email" type="email" placeholder="you@example.com">
+								</label>
+							</div>
 
-							<input type="submit" value="Send Message">
-						</form>
-					</div>
-				</section>
-
-				<section id="contact" class="tablet-desktop generic-container">
-					<h3>Get in Touch</h3>
-					<p>
-						Have a project in mind or just want to say hello? Send me a message and I&rsquo;ll get back to you.
-					</p>
-					<div class="contact-card">
-						<form class="contact-form" action="#" method="post">
-							<label for="name">Name:
-								<input required id="name" type="text" placeholder="Your name">
-							</label>
-
-							<label for="email">Email:
-								<input required id="email" type="email" placeholder="you@example.com">
-							</label>
-
-							<label for="message">Message:
-								<textarea required id="message" placeholder="Tell me about your project..." rows="4"></textarea>
-							</label>
+							<div class="input-control">
+								<label for="message">Message:
+									<textarea id="message" placeholder="Tell me about your project..." rows="4"></textarea>
+								</label>
+							</div>
 
 							<input type="submit" value="Send Message">
+
+							<div class="feedback error">
+								<img src="assets/error.png" alt="Error">
+								<span class="message"></span>
+							</div>
+							<div class="feedback success">
+								<img src="assets/success.png" alt="Success">
+								<span class="message"></span>
+							</div>
+
 						</form>
 					</div>
 				</section>
@@ -106,8 +100,8 @@
 					<p class="footer-contact-info">&copy; 2026 All Rights Reserved</p>
 				</div>
 			</div>
-    	</footer>
+		</footer>
 
 	</body>
 
-</html>
+	</html>
