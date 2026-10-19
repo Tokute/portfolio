@@ -822,10 +822,73 @@ main {
     margin-bottom: 1.25rem;
 }
 
+/* Personal identification */
+
+.about-profile {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    align-items: center;
+    gap: var(--spacing-default);
+    width: min(100%, 53rem);
+    /* this margin is kept for the mobile viewport ver. to have proper spacing */
+    margin: 0 auto var(--spacing-default);
+    padding: var(--spacing-default);
+    background-color: var(--color-background);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-small);
+}
+
+.about-profile-photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+}
+
+.about-profile-details {
+    min-width: 0;
+}
+
+.about-profile-name {
+    margin-bottom: var(--spacing-tight);
+    font-size: 1.35rem;
+    overflow-wrap: anywhere;
+}
+
+.about-profile-facts {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    column-gap: var(--spacing-tight);
+    row-gap: 0.25rem;
+    margin: 0;
+}
+
+.about-profile-facts dt {
+    font-weight: 700;
+}
+
+.about-profile-facts dd {
+    min-width: 0;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+/* ============================= */
+
 .intro-grid {
     display: grid;
     gap: var(--spacing-default);
 }
+
+.intro-grid > .about-profile {
+    grid-column: 1 / -1;
+    margin: 0 auto;
+}
+
+/* Intro cards (Brief Introduction, etc. */
 
 .intro-card {
     display: flex;
@@ -859,6 +922,8 @@ main {
     border: 1px solid var(--color-border);
     color: var(--color-text);
 }
+
+/* ============================= */
 
 /* 2. Educational background */
 
@@ -1442,6 +1507,10 @@ input:focus, textarea:focus {
     }
 
     /* Expand shared grids and about-page card layouts. */
+
+    .about-profile {
+        grid-template-columns: 9rem minmax(0, 1fr);
+    }
 
     .card-grid {
         grid-template-columns: repeat(2, 1fr);
