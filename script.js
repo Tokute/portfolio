@@ -52,12 +52,10 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 'mobile-project-list', title: 'Projects List (Mobile)', page: 'projects.html' },
 
         // Contact.html sections
-        { id: 'contact-mobile', title: 'Contact (Mobile)', page: 'contact.html' },
         { id: 'contact', title: 'Contact', page: 'contact.html' }
     ];
 
     // Toggle search bar state when circle is clicked
-    // Expand and focus the search input, or collapse the bar and clear its state.
     searchCircle.addEventListener('click', function() {
         if (searchBar.getAttribute('data-state') === 'collapsed') {
             searchBar.setAttribute('data-state', 'expanded');
@@ -72,7 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Perform search and jump to element
-    // Scroll to a matching section on this page or navigate to its page first.
     function performSearch() {
         const query = searchInput.value.trim();
 
@@ -135,7 +132,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Filter items that match the ID or title
-        // Keep entries whose IDs or titles contain the typed query.
         const matches = searchableItems.filter(item =>
             item.id.toLowerCase().includes(query) ||
             item.title.toLowerCase().includes(query)
@@ -184,3 +180,89 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+const contactForms = document.querySelectorAll('form.contact-form');
+contactForms.forEach(form => {
+    let feedbackTimeout;
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent form submission
+        clearTimeout(feedbackTimeout);
+
+        const nameInput = form.querySelector('input[type="text"]');
+        const emailInput = form.querySelector('input[type="email"]');
+        const messageInput = form.querySelector('textarea');
+
+        if (!nameInput || !emailInput || !messageInput) {
+            console.error('Form elements not found');
+            return;
+        }
+
+        let isValid = true;
+        let errorMessage = '';
+
+        // Validate name
+        const name = nameInput.value.trim();
+        if (name === '') {
+            isValid = false;
+            errorMessage = 'Please enter your name.';
+        }
+
+        // Validate email
+        const email = emailInput.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  // from online*
+
+        if (!emailPattern.test(email)) {
+            isValid = false;
+            errorMessage = 'Please enter a valid email address.';
+        }
+
+        // Validate message
+        const message = messageInput.value.trim();
+        if (message === '') {
+            isValid = false;
+            errorMessage = 'Please enter a message.';
+        }
+
+        if (!isValid) {
+            setError(form, errorMessage);
+            feedbackTimeout = setTimeout(() => {
+                const errorFeedback = form.querySelector('.feedback.error');
+                if (errorFeedback) {
+                    errorFeedback.classList.remove('show');
+                }
+            }, 3000);
+            return;
+        }
+
+        // If we reach here, the form is valid
+        setSuccess(form, 'Contents valid. Your message has been sent!');
+        feedbackTimeout = setTimeout(() => {
+            const successFeedback = form.querySelector('.feedback.success');
+            if (successFeedback) {
+                successFeedback.classList.remove('show');
+            }
+        }, 3000);
+    });
+});
+
+// Helper functions to set error and success states (form-level feedback)
+function setError(form, message) {
+    const errorFeedback = form.querySelector('.feedback.error');
+    const successFeedback = form.querySelector('.feedback.success');
+    if (errorFeedback) {
+        errorFeedback.querySelector('.message').textContent = message;
+        errorFeedback.classList.add('show');
+        successFeedback.classList.remove('show');
+    }
+}
+
+function setSuccess(form, message) {
+    const errorFeedback = form.querySelector('.feedback.error');
+    const successFeedback = form.querySelector('.feedback.success');
+    if (successFeedback) {
+        successFeedback.querySelector('.message').textContent = message;
+        successFeedback.classList.add('show');
+        errorFeedback.classList.remove('show');
+    }
+}
