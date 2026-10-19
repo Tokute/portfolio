@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 'site-footer', title: 'Footer', page: 'index.html' },
 
         // About.html sections
+        { id: 'personal-information-mobile', title: 'Personal Information (Mobile)', page: 'about.html', viewport: 'mobile' },
         { id: 'about-mobile-content', title: 'About Me (Mobile)', page: 'about.html', viewport: 'mobile' },
         { id: 'educational-background-mobile', title: 'Education (Mobile)', page: 'about.html', viewport: 'mobile' },
         { id: 'about-skills-mobile', title: 'Skills & Technologies (Mobile)', page: 'about.html', viewport: 'mobile' },
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 'development-philosophy-mobile', title: 'Development Philosophy (Mobile)', page: 'about.html', viewport: 'mobile' },
         { id: 'development-journey-mobile', title: 'Development Journey (Mobile)', page: 'about.html', viewport: 'mobile' },
         { id: 'current-learning-interests-mobile', title: 'Current Learning Interests (Mobile)', page: 'about.html', viewport: 'mobile' },
+        { id: 'personal-information', title: 'Personal Information', page: 'about.html', viewport: 'tablet-desktop' },
         { id: 'about-content', title: 'Brief Introduction', page: 'about.html', viewport: 'tablet-desktop' },
         { id: 'educational-background', title: 'Educational Background', page: 'about.html', viewport: 'tablet-desktop' },
         { id: 'about-skills', title: 'Skills & Technologies', page: 'about.html', viewport: 'tablet-desktop' },
