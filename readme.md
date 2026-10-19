@@ -1,6 +1,6 @@
 # Ned / Tokute — Developer Portfolio
 
-Portfolio website for midterm output. A static, HTML + CSS portfolio implementing a **tonal orange** design system (derived from a Figma style guide) with **Black Ops One** display and **Monda** body type.
+Portfolio website for midterm output.
 
 ## Project Notes
 
@@ -15,9 +15,19 @@ developer-portfolio/
 ├── projects.html     # Projects — featured project + project grid
 ├── contact.html      # Contact — get in touch form
 ├── css/
-│   └── style.css     # Global stylesheet
-├── images/           # Where logo.pngs are stored
-│   └── certifications  # Where certification images are stored
+│   └── style.css     # Global stylesheet with design tokens, layout, and components
+├── assets/           # Static assets for UI enhancements
+│   ├── search.png    # Search icon for search bar
+│   ├── success.png   # Success feedback icon for forms
+│   └── error.png     # Error feedback icon for forms
+├── images/           # Where logo.pngs and media are stored
+│   ├── profile.jpg   # Profile photo
+│   ├── technology logos (css.png, html.png, java.png, javascript.png, python.png, sql.png, vscode.png, photoshop.png, figma.png, git.png, github.png, linkedin.png, gmail.png, facebook.png)
+│   └── certifications/  # Where certification images are stored
+│       ├── 1stRegionalAIConference.png
+│       ├── CompTIATechcertificate.png
+│       └── simplilearn-git.jpg
+├─ script.js          # Search functionality with suggestions and form validation
 └── readme.md
 ```
 
@@ -71,7 +81,6 @@ All pages share a common layout: sticky header with logo + navigation, a hero ba
 - **Project badges** (`.project-badges`) — used to label featured projects (e.g., "Featured").
 - **Learning badge** (`.learning-badge`) — used in the skills section to highlight current learning topics.
 - **Site footer** (`.site-footer`) — contains copyright and domain information.
-
 - **Social links** (`.socials-link`) — flex column container for platform icons with labels
 
 ## Layout & Responsiveness
@@ -83,3 +92,38 @@ All pages share a common layout: sticky header with logo + navigation, a hero ba
   - **Desktop (≥1015px)**: card grids become 3 columns; cards widen; the featured project goes horizontal.
 - **Print**: hides navigation and hero, and resets to white/black.
 - Header is `position: sticky` with a bottom border.
+
+## JavaScript Functionality
+
+### Search Bar (`script.js`)
+- Interactive search functionality with expandable/collapsible search bar
+- Suggestions dropdown that filters sections based on current viewport (mobile/tablet-desktop)
+- Section jump navigation: typing a section ID jumps directly to that section on the current page
+- Cross-page navigation: if section exists on another page, navigates to that page and section
+- Visual feedback: highlights found sections temporarily
+- Accessible design: supports mouse clicks, Enter key, and click-away to dismiss
+
+### Form Validation (`script.js`)
+- Client-side validation for contact form fields (name, email, message)
+- Email format validation using regex pattern
+- Visual feedback: success/error states with corresponding icons and messages
+- Auto-hide feedback after timeout (3 seconds for errors, 5 seconds for success)
+- Prevents actual form submission (demo/test mode)
+
+## Design Tokens
+
+The design system uses CSS custom properties for:
+- **Colors**: Primary, secondary, background, surface, text, muted, border, semantic colors (success, warning, error)
+- **Border Radius**: Small (4px), medium (8px), large (12px)
+- **Shadows**: Small, medium, large elevations
+- **Spacing**: Tight, default, medium, large, block separator, major section, large major section
+
+## Development Notes
+
+This portfolio was built as a static website demonstrating:
+- CSS custom properties for design token management
+- Mobile-first responsive design with breakpoint-based layout changes
+- Reusable UI components through CSS classes
+- Interactive JavaScript functionality without frameworks
+- Accessible design patterns
+- Semantic HTML structure
