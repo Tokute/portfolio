@@ -236,13 +236,13 @@ contactForms.forEach(form => {
         }
 
         // If we reach here, the form is valid
-        setSuccess(form, 'Contents valid. Your message has been sent!');
+        setSuccess(form, 'Contents valid. Your message has been sent! (Test-case only)');
         feedbackTimeout = setTimeout(() => {
             const successFeedback = form.querySelector('.feedback.success');
             if (successFeedback) {
                 successFeedback.classList.remove('show');
             }
-        }, 3000);
+        }, 5000);
     });
 });
 
