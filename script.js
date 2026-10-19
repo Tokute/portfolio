@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-button');
     const suggestionsContainer = document.getElementById('search-suggestions');
+    const viewportQuery = window.matchMedia('(min-width: 768px)');
 
     // Hide the suggestions list when the query is empty or search is complete.
     function hideSuggestions() {
@@ -21,35 +22,35 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchableItems = [
         // Index.html sections
         { id: 'hero', title: 'Hero Section', page: 'index.html' },
-        { id: 'mobile-index-content', title: 'Welcome to My Portfolio (Mobile)', page: 'index.html' },
-        { id: 'intro', title: 'Welcome to My Portfolio', page: 'index.html' },
-        { id: 'featured-projects', title: 'Featured Projects (Home)', page: 'index.html' },
-        { id: 'mobile-projects', title: 'Projects (Mobile)', page: 'index.html' },
+        { id: 'mobile-index-content', title: 'Welcome to My Portfolio (Mobile)', page: 'index.html', viewport: 'mobile' },
+        { id: 'intro', title: 'Welcome to My Portfolio', page: 'index.html', viewport: 'tablet-desktop' },
+        { id: 'featured-projects', title: 'Featured Projects (Home)', page: 'index.html', viewport: 'tablet-desktop' },
+        { id: 'mobile-projects', title: 'Projects (Mobile)', page: 'index.html', viewport: 'mobile' },
         { id: 'socials', title: 'Connect With Me', page: 'index.html' },
         { id: 'site-footer', title: 'Footer', page: 'index.html' },
 
         // About.html sections
-        { id: 'about-mobile-content', title: 'About Me (Mobile)', page: 'about.html' },
-        { id: 'educational-background-mobile', title: 'Education (Mobile)', page: 'about.html' },
-        { id: 'about-skills-mobile', title: 'Skills & Technologies (Mobile)', page: 'about.html' },
-        { id: 'certifications-mobile', title: 'Certifications (Mobile)', page: 'about.html' },
-        { id: 'technical-interests-mobile', title: 'Technical Interests (Mobile)', page: 'about.html' },
-        { id: 'development-philosophy-mobile', title: 'Development Philosophy (Mobile)', page: 'about.html' },
-        { id: 'development-journey-mobile', title: 'Development Journey (Mobile)', page: 'about.html' },
-        { id: 'current-learning-interests-mobile', title: 'Current Learning Interests (Mobile)', page: 'about.html' },
-        { id: 'about-content', title: 'Brief Introduction', page: 'about.html' },
-        { id: 'educational-background', title: 'Educational Background', page: 'about.html' },
-        { id: 'about-skills', title: 'Skills & Technologies', page: 'about.html' },
-        { id: 'certifications', title: 'Certifications', page: 'about.html' },
-        { id: 'technical-interests', title: 'Technical Interests', page: 'about.html' },
-        { id: 'development-philosophy', title: 'Development Philosophy', page: 'about.html' },
-        { id: 'development-journey', title: 'Development Journey', page: 'about.html' },
-        { id: 'current-learning-interests', title: 'Current Learning Interests', page: 'about.html' },
+        { id: 'about-mobile-content', title: 'About Me (Mobile)', page: 'about.html', viewport: 'mobile' },
+        { id: 'educational-background-mobile', title: 'Education (Mobile)', page: 'about.html', viewport: 'mobile' },
+        { id: 'about-skills-mobile', title: 'Skills & Technologies (Mobile)', page: 'about.html', viewport: 'mobile' },
+        { id: 'certifications-mobile', title: 'Certifications (Mobile)', page: 'about.html', viewport: 'mobile' },
+        { id: 'technical-interests-mobile', title: 'Technical Interests (Mobile)', page: 'about.html', viewport: 'mobile' },
+        { id: 'development-philosophy-mobile', title: 'Development Philosophy (Mobile)', page: 'about.html', viewport: 'mobile' },
+        { id: 'development-journey-mobile', title: 'Development Journey (Mobile)', page: 'about.html', viewport: 'mobile' },
+        { id: 'current-learning-interests-mobile', title: 'Current Learning Interests (Mobile)', page: 'about.html', viewport: 'mobile' },
+        { id: 'about-content', title: 'Brief Introduction', page: 'about.html', viewport: 'tablet-desktop' },
+        { id: 'educational-background', title: 'Educational Background', page: 'about.html', viewport: 'tablet-desktop' },
+        { id: 'about-skills', title: 'Skills & Technologies', page: 'about.html', viewport: 'tablet-desktop' },
+        { id: 'certifications', title: 'Certifications', page: 'about.html', viewport: 'tablet-desktop' },
+        { id: 'technical-interests', title: 'Technical Interests', page: 'about.html', viewport: 'tablet-desktop' },
+        { id: 'development-philosophy', title: 'Development Philosophy', page: 'about.html', viewport: 'tablet-desktop' },
+        { id: 'development-journey', title: 'Development Journey', page: 'about.html', viewport: 'tablet-desktop' },
+        { id: 'current-learning-interests', title: 'Current Learning Interests', page: 'about.html', viewport: 'tablet-desktop' },
 
         // Projects.html sections
-        { id: 'featured-project-mobile', title: 'Featured Project (Mobile)', page: 'projects.html' },
-        { id: 'featured-project', title: 'Featured Project (Projects)', page: 'projects.html' },
-        { id: 'mobile-project-list', title: 'Projects List (Mobile)', page: 'projects.html' },
+        { id: 'featured-project-mobile', title: 'Featured Project (Mobile)', page: 'projects.html', viewport: 'mobile' },
+        { id: 'featured-project', title: 'Featured Project (Projects)', page: 'projects.html', viewport: 'tablet-desktop' },
+        { id: 'mobile-project-list', title: 'Projects List (Mobile)', page: 'projects.html', viewport: 'mobile' },
 
         // Contact.html sections
         { id: 'contact', title: 'Contact', page: 'contact.html' }
@@ -121,9 +122,8 @@ document.addEventListener('DOMContentLoaded', function() {
         suggestionsContainer.style.display = 'block';
     }
 
-    // Show suggestions as user types
-    // Filter searchable sections by ID or title and refresh the dropdown.
-    searchInput.addEventListener('input', function() {
+    // Refresh suggestions for the current query and visible layout.
+    function updateSuggestions() {
         const query = searchInput.value.toLowerCase().trim();
 
         if (query.length === 0) {
@@ -131,10 +131,11 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Filter items that match the ID or title
+        const currentViewport = viewportQuery.matches ? 'tablet-desktop' : 'mobile';
         const matches = searchableItems.filter(item =>
-            item.id.toLowerCase().includes(query) ||
-            item.title.toLowerCase().includes(query)
+            (!item.viewport || item.viewport === currentViewport) &&
+            (item.id.toLowerCase().includes(query) ||
+                item.title.toLowerCase().includes(query))
         );
 
         if (matches.length > 0) {
@@ -142,7 +143,11 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             hideSuggestions();
         }
-    });
+    }
+
+    // Show suggestions as user types and refresh them after a breakpoint change.
+    searchInput.addEventListener('input', updateSuggestions);
+    viewportQuery.addEventListener('change', updateSuggestions);
 
     // Delegate clicks so each rendered suggestion does not need its own listener
     // Use the selected suggestion's stored ID to perform the corresponding search.
